@@ -1,0 +1,55 @@
+.about-us-section {
+  background: linear-gradient(to right, #fff5ec, #ffe3d4);
+  padding: 80px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #2b2b2b;
+  margin-top: 50px;
+}
+
+.about-us-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #e94e1b;
+}
+
+.about-title span {
+  color: #2b2b2b;
+}
+
+.vision-title,
+.difference-title {
+  font-size: 2rem;
+  margin-top: 40px;
+  color: #e94e1b;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.about-list li {
+  margin: 10px 10px;
+  background: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}

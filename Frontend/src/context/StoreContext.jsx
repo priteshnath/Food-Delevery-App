@@ -9,6 +9,8 @@ const StoreContextProvider = (props) => {
     const url = "http://localhost:4000";
     const [token, setToken] = useState("");
     const [food_list, setFoodList] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
@@ -44,7 +46,7 @@ const StoreContextProvider = (props) => {
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         if (food_list.length === 0) return totalAmount; // Prevents error if food_list is empty
-    
+
         for (const item in cartItems) {
             if (cartItems[item] > 0) {
                 let itemInfo = food_list.find((product) => product._id === item);
@@ -55,7 +57,7 @@ const StoreContextProvider = (props) => {
         }
         return totalAmount;
     };
-    
+
 
     const fetchFoodList = async () => {
         const response = await axios.get(url + '/api/food/list');
@@ -68,7 +70,21 @@ const StoreContextProvider = (props) => {
         const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } });
         setCarItems(response.data.cartData);
     }
-    
+
+    const setSearchQueryAndResults = (query) => {
+        setSearchQuery(query);
+
+        const results = food_list.filter(item =>
+            item.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+        setSearchResults(results);
+    };
+    // Function to clear the search query
+    const clearSearch = () => {
+        setSearchQuery("");
+        setSearchResults(food_list);
+    };
 
     useEffect(() => {
         async function loadData() {
@@ -90,7 +106,11 @@ const StoreContextProvider = (props) => {
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        searchQuery,
+        searchResults,
+        setSearchQueryAndResults,
+        clearSearch
     }
     return (
         <StoreContext.Provider value={contextValue}>
