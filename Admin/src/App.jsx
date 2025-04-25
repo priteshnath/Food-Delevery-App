@@ -12,11 +12,9 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   const { isSignedIn, user } = useUser();
-  const url = "http://localhost:4000";
-
+  const url = import.meta.env.REACT_APP_BACKEND_URL;
   const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
   const isAdmin = isSignedIn && user?.primaryEmailAddress?.emailAddress === adminEmail;
-  console.log(isAdmin);
 
   return (
     <div>
