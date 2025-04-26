@@ -10,7 +10,7 @@ import ratingRoutes from "./routes/ratingRoutes.js";
 
 // app config
 const app = express();
-const port = process.env.BACKEND_PORT_NUMBER || 4000;
+const port = 4000;
 
 // middleware
 app.use(express.json());

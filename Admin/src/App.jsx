@@ -12,7 +12,8 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   const { isSignedIn, user } = useUser();
-  const url = import.meta.env.REACT_APP_BACKEND_URL;
+  // const url = import.meta.env.REACT_APP_BACKEND_URL;
+  const url = "http://localhost:4000"
   const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
   const isAdmin = isSignedIn && user?.primaryEmailAddress?.emailAddress === adminEmail;
 

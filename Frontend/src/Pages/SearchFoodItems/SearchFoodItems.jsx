@@ -45,6 +45,7 @@ const SearchFoodItems = () => {
                                 description={item.description}
                                 price={item.price}
                                 image={item.image}
+                                averageRating={item.averageRating}
                             />
                         ))
                     ) : (
